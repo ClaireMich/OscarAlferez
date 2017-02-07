@@ -8,7 +8,10 @@
          	<th>Nombre</th>
          	<th>Apellido Paterno </th>
          	<th>Apellido Materno</th>
-         	<th>Direccion</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Teléfono de Casa</th>
+          <th>Teléfono Móvil</th>
+          <th>Correo</th>
           <th>Acción</th>
        	</tr>
      	</thead>

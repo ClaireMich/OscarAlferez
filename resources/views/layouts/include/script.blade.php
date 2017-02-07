@@ -2,6 +2,8 @@
     {!!Html::script('js/jquery.min.js')!!}
     <!-- Bootstrap -->
     {!!Html::script('js/app.js')!!}
+    <!-- jQuery Smart Wizard -->
+    {!!Html::script('js/jquery.smartWizard.js')!!}
     <!-- Chart.js -->
     {!!Html::script('js/Chart.min.js')!!}
     <!-- Flot -->
@@ -46,9 +48,11 @@
         headers: {'X-CSRF-TOKEN': csrfToken}
       });
       $(document).ready(function(){
-          Core.init(true);         
+          Core.init(true);  
+          //Dropzone.options.mydropform = false;
+          
 
       });
-      
+ 
 
     </script>

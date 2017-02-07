@@ -26,6 +26,8 @@ Route::group(['prefix' => 'admin', 'middleware'=>'auth'], function () {
     Route::post('updateStudent/{student}', 'AdminController@updateStudent');    
     Route::post('destroyStudent/{student}', 'AdminController@destroyStudent');
     Route::post('uploadImageStudent', 'AdminController@uploadImageStudent');
+    Route::post('deleteImageStudent/{fileName}', 'AdminController@deleteImageStudent');
+    Route::get('getMunicipalities/{state}', 'AdminController@getMunicipalities');
 });
 
 Route::get('/home', 'HomeController@index');

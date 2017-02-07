@@ -23,11 +23,31 @@ $factory->define(Escuela\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+
+
 $factory->define(Escuela\Models\Student::class, function($faker){
 		return[
-			'nombre'	=> $faker->firstName,
-			'apellidoPaterno' => $faker->lastName,
-			'apellidoMaterno' => $faker->lastName,
-			'direccion'	=> $faker->address,
+			'nombre'						=> $faker->firstName,
+			'apellidoPaterno' 				=> $faker->lastName,
+			'apellidoMaterno' 				=> $faker->lastName,
+			'direccion'						=> $faker->address,
+			'fechaNacimiento' 				=> $faker->dateTime($max = 'now', $timezone = date_default_timezone_get()),
+			'CURP'							=> $faker->word,
+			'telefonoCasa'					=> $faker->phoneNumber,
+			'telefonoMovil'					=> $faker->phoneNumber,
+			'contactoEmergencia'			=> $faker->phoneNumber,
+			'telefonoContactoEmergencia'	=> $faker->phoneNumber,
+			'correo'						=> $faker->freeEMail,
+			'municipality_id'				=> random_int(1,2577),
+			'status_id'						=> 1,
+			'employee_id'					=> 1,
 		];
-	});
+});
+
+$factory->define(Escuela\Models\Employee::class, function($faker){
+		return[
+			'nombre'						=> $faker->firstName,
+			'apellidoPaterno' 				=> $faker->lastName,
+			'apellidoMaterno' 				=> $faker->lastName,
+		];
+});

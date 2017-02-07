@@ -52,7 +52,10 @@ var Core = {
                 { data: 'nombre', name: 'nombre' },
                 { data: 'apellidoPaterno', name: 'apellidoPaterno' },
                 { data: 'apellidoMaterno', name: 'apellidoMaterno' },
-                { data: 'direccion', name: 'direccion' },
+                { data: 'fechaNacimiento', name: 'fechaNacimiento' },
+                { data: 'telefonoCasa', name: 'telefonoCasa' },
+                { data: 'telefonoMovil', name: 'telefonoMovil' },
+                { data: 'correo', name: 'correo' },
                 { data: 'action', name: 'action', orderable: false, searchable: false}
             ],
             "initComplete": function () {
@@ -82,6 +85,7 @@ var Core = {
         {
             e.preventDefault();
             form=$('#formStoreStudent');
+            console.log(form);
             Core.ajaxFormSubmit(form);
         });
         $("#updateStudent").off('click').on('click', function(e)
@@ -104,23 +108,50 @@ var Core = {
             form = $('#form-edit-details');
             Core.ajaxFormSubmit(form);
         });
+        $("#field-state").off('click').on('change', function(e)
+        {
+            e.preventDefault();
+            value =$("#field-state").val();
+            Core.ajaxGetInformation('getMunicipalities/'+value, 'field-municipality');
+        });
 
     },
 
-    ajaxFormSubmit: function(form) {
-
-        var data = form.serializeFiles();
+    ajaxGetInformation: function( url, input)
+    {
         $.ajax({
-            url:            form.attr('action'),
-            type:           'post',
-            data:           data,
+            url:            url,
+            type:           'get',
             dataType:       'json',
             mimeType:       "multipart/form-data",
             contentType:    false,
             cache:          false,
             processData:    false,
             success: function(response) {
-                console.log(response);
+                $("#"+input+" option[value]").remove();
+                $("#"+input).append('<option value="0" selected="selected">Selecciona un Municipio</option>');
+                response.forEach(element=>{
+                    $("#"+input).append('<option value='+element.id+'>'+element.nombre+'</option>');
+                });
+            },
+            error: function(response)
+            {
+            },
+        });
+    },
+
+    ajaxFormSubmit: function(form) {
+
+        var data = form.serializeArray();
+        console.log(form.attr('action'));
+        console.log(data);
+        $.ajax({
+            url:            form.attr('action'),
+            type:           'post',
+            data:           data,
+            dataType:       'json',
+            mimeType:       "multipart/form-data",
+            success: function(response) {
                 var showMsg = true;
 
                 if (response.type != 'Error') {

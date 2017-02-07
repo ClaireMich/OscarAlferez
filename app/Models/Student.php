@@ -10,6 +10,29 @@ class Student extends Model
         'nombre', 
         'apellidoPaterno', 
         'apellidoMaterno',
-        'direccion',
+        'fechaNacimiento',
+        'telefonoCasa',
+        'telefonoMovil',
+        'contactoEmergencia',
+        'telefonoContactoEmergencia',
+        'correo',
+        'municipality_id',
+        'status_id',
+        'employee_id',
+        'foto',
+        'calle',
+        'numero',
+        'codigoPostal',
+        'sexo',
+        'enfermedad',
+        'enfermedadDescripcion',
+        'medicoConfianza',
+        'primeraPersona',
+        'segundaPersona',
     ];
+
+    public function municapilty()
+    {
+        return $this->belongsTo(Municipality::class);
+    }
 }

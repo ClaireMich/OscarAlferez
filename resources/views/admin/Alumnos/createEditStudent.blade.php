@@ -2,23 +2,16 @@
 
 @section('content')
   <div class="row">
-    <div class="col-sm-3">
-      {!! Form::open(['url' => '/admin/uploadImageStudent', 'files' => true, 'class'=>'dropzone']) !!}
+    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+      {!! Form::open(['url' => '/admin/uploadImageStudent', 'files' => true,  'id'=>'mydropform', 'class'=>'dropzone']) !!}
         <div class="dz-message container text-center" id="div-message" >
           <img src="{{asset('images/upload.png')}}" class="img-responsive">
           <br/>
           <button type="button" class="btn btn-primary btn-sm">Seleccionar Foto</button>
-        </div>
-        <div class="fallback">
-          <input name="file" type="file"/>
-        </div>
-
-        <div class="dropzone-previews" id="dropzonePreview"></div>
-
-        
+        </div> 
       {!!Form::close()!!}
     </div>
-    <div class="col-sm-9">
+    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
       @if(isset($student))
         {!! Form::open(['url'=>'admin/updateStudent/'.$student->id, 'class'=>'form-horizontal', 'id'=>'formUpdateStudent']) !!}
           @include('admin.Alumnos.forms.student')
@@ -47,7 +40,7 @@
 
 @section('scripts')
   <script >
-  Dropzone.options.myDropzone={
+          Dropzone.options.mydropform={
             url:'/admin/uploadImageStudent', 
             parallelUploads: 1,
             addRemoveLinks: true,
@@ -61,21 +54,60 @@
             dictMaxFilesExceeded: "No se puede subir más de un archivo a la vez, Cancele la subida y vuelvalo a intentar",
             dictFileTooBig: "El archivo es muy grande la capacidad mazima es de 2 MB",
             dictInvalidFileType: "No se pueden subir archivos diferentes a imagenes",
-            complete:function(file)
+            init:function()
             {
-              if(file.status=="success")
-              {
-                Core.showMessage('El archivo '+file.name+' se ha subido exitosamente', 'success');
-                $('#foto').val(file.name);
-              }
-              else
-                this.remove(file);
+                mydropform = this;
+                this.on("complete", function(file) {
+                  if(file.status=="success")
+                  {
+                    Core.showMessage('El archivo '+file.name+' se ha agregado exitosamente', 'success');
+                    $('#foto').val(file.name);
+                  }
+                });
+                this.on("removedfile", function(file) {
+                  if(file.status=="success")
+                  {
+                    var token= $(".field-token").val();
+                    $.ajax({
+                        type: 'POST',
+                        url: '/admin/deleteImageStudent/'+file.name,
+                        headers:{'X-CSRF-TOKEN': token},
+                        dataType: 'html',
+                        success: function(data){
+                            var rep = JSON.parse(data);
+                            if(rep.type=='Success')
+                            {
+                                Core.showMessage(rep.message, 'success');
+                                $('#foto').val('');
+                            }
+                        }
+                    });
+                  }
+                });
             },
             error:function(file, response)
             {
               this.removeFile(file);
               Core.showMessage(response, 'error');              
             }
-        }
-    </script>
+        }; 
+        $(function() {
+          $( "#fechaNacimiento" ).daterangepicker({
+                  singleDatePicker: true,
+                  showDropdowns: true
+              }, 
+              function(start, end, label) {
+                  var years = moment().diff(start, 'years');
+                  alert("El alumno tiene " + years + " años.");
+          });
+          $( "#fechaInscripcion" ).daterangepicker({
+                  singleDatePicker: true,
+                  showDropdowns: true
+          });
+          $('#wizard').smartWizard();
+          $('.buttonNext').addClass('btn btn-success');
+          $('.buttonPrevious').addClass('btn btn-primary');
+          $('.buttonFinish').addClass('btn btn-danger');
+        });
+  </script>
 @endsection

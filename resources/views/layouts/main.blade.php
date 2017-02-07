@@ -19,12 +19,12 @@
     {!!HTML::style('css/daterangepicker.css')!!}  
 
     <!-- Custom Theme Style -->
-    {!!Html::style('css/custom.min.css')!!} 
+    {!!Html::style('css/custom.css')!!} 
     <!-- Datatables -->
     {!!Html::style('//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css')!!} 
     {!!Html::style('DataTables/responsive.bootstrap.min.css')!!}
     {!!Html::style('//cdn.datatables.net/1.10.12/css/dataTables.bootstrap4.min.css')!!}
-  
+    
     <!-- Dropzone -->
     {!!Html::style('css/dropzone.css')!!}
   </head>
@@ -63,7 +63,8 @@
                   <li><a><i class="fa fa-user"></i> Alumnos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/admin/alumnos">Ver Alumnos</a></li>
-                      <li><a href="/admin/registrarAlumno">Registrar Alumno</a></li>
+                      <li><a href="/admin/registrarAlumno">Registrar Alumno (Menor)</a></li>
+                      <li><a href="/admin/registrarAlumno">Registrar Alumno (Mayor)</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-coffee"></i> Profesor <span class="fa fa-chevron-down"></span></a>
