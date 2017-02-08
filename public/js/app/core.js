@@ -84,8 +84,9 @@ var Core = {
         $("#storeStudent").off('click').on('click', function(e)
         {
             e.preventDefault();
+            $('.form-group').removeClass('has-error');
+            $('.error').addClass('hide');
             form=$('#formStoreStudent');
-            console.log(form);
             Core.ajaxFormSubmit(form);
         });
         $("#updateStudent").off('click').on('click', function(e)
@@ -112,7 +113,7 @@ var Core = {
         {
             e.preventDefault();
             value =$("#field-state").val();
-            Core.ajaxGetInformation('getMunicipalities/'+value, 'field-municipality');
+            Core.ajaxGetInformation('getMunicipalities/'+value, 'field-municipality-id');
         });
 
     },
@@ -173,9 +174,29 @@ var Core = {
             },
             error: function(response)
             {
-                console.log(response);
                 if(response.status==422)
                 {
+                    if (response.responseText != null){
+                        var json = JSON.parse(response.responseText);
+                        for(var key in json) { 
+                            if($( "."+key )!=null)    
+                                $( "."+key ).addClass('has-error');
+                            if(document.getElementById('error_'+key))
+                            {
+                                document.getElementById('error_'+key).innerHTML="Error en el campo";
+                                $( "#error_"+key ).removeClass('hide');
+                            }
+                                    
+                        }
+                        
+                        if(json.email!=undefined && json.email!='The email field is required.')
+                        {
+                            $( ".email" ).addClass('has-error');
+                            document.getElementById('error_email').innerHTML=json.email[0];
+                            $( "#error_email" ).removeClass('hide');
+                            Core.showMessage(json.email[0], 'error');                          
+                        }
+                    }
                     Core.showMessage('Please check all the fields are completed correctly', 'error');
                 }
             },

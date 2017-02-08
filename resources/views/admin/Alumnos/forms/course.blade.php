@@ -1,4 +1,4 @@
-<div id="step-4">
+<div id="step-2">
         <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
           {!! Form::label('Plantel', 'Plantel: ', ['class'=>'sr-only col-sm-2 control-label']) !!}
           @if(isset($student))

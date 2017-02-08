@@ -1,4 +1,4 @@
-<div id="step-3">
+<div id="step-4">
         <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <label class="control-label col-md-3 col-sm-3 col-xs-12">Sexo</label>
         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -31,77 +31,77 @@
         </div>
         </div>
         <div class="form-group">
-          {!! Form::label('nombre', 'Nombre: ', ['class'=>' sr-only col-xs-2 col-sm-2 col-md-2 col-lg-2 control-label']) !!}
+          {!! Form::label('nombreP2', 'Nombre: ', ['class'=>' sr-only col-xs-2 col-sm-2 col-md-2 col-lg-2 control-label']) !!}
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             @if(isset($parent[1]))
-              {!!Form::text('nombre', ['class'=>'form-control', 'id' => 'nombre',
+              {!!Form::text('nombreP2', ['class'=>'form-control', 'id' => 'nombreP2',
               'value'=>$parent[1]->nombre, 'placeholder'=>'Nombre'])!!}
             @else
-              {!!Form::text('nombre', ['class'=>'form-control', 'id' => 'nombre', 
+              {!!Form::text('nombreP2', ['class'=>'form-control', 'id' => 'nombreP2', 
               'placeholder'=>'Nombre'])!!}
             @endif
           </div>
         </div>
         <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          {!! Form::label('apellidoPaterno', 'Apellido Paterno: ', ['class'=>'sr-only col-sm-2 col-md-2 col-lg-2 control-label']) !!}
+          {!! Form::label('apellidoPaternoP2', 'Apellido Paterno: ', ['class'=>'sr-only col-sm-2 col-md-2 col-lg-2 control-label']) !!}
 
             @if(isset($parent[1]))
-              {!!Form::text('apellidoPaterno', ['class'=>'form-control', 'placeholder'
-            =>'Apellido Paterno', 'id' => 'apellidoPaterno', 'value'=>$parent[1]->apellidoPaterno])!!}
+              {!!Form::text('apellidoPaternoP2', ['class'=>'form-control', 'placeholder'
+            =>'Apellido Paterno', 'id' => 'apellidoPaternoP2', 'value'=>$parent[1]->apellidoPaterno])!!}
             @else
-              {!!Form::text('apellidoPaterno', ['class'=>'form-control', 'placeholder'
-            =>'Apellido Paterno', 'id' => 'apellidoPaterno'])!!}
+              {!!Form::text('apellidoPaternoP2', ['class'=>'form-control', 'placeholder'
+            =>'Apellido Paterno', 'id' => 'apellidoPaternoP2'])!!}
             @endif
         </div>
         <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          {!! Form::label('apellidoMaterno', 'Apellido Materno: ', ['class'=>'sr-only col-sm-2 col-md-2 col-lg-2 control-label']) !!}
+          {!! Form::label('apellidoMaternoP2', 'Apellido Materno: ', ['class'=>'sr-only col-sm-2 col-md-2 col-lg-2 control-label']) !!}
             @if(isset($parent[1]))
-              {!!Form::text('apellidoMaterno', ['class'=>'form-control', 'placeholder'
-            =>'Apellido Materno', 'id'=>'apellidoMaterno', 'value'=>$parent[1]->apellidoMaterno])!!}
+              {!!Form::text('apellidoMaternoP2', ['class'=>'form-control', 'placeholder'
+            =>'Apellido Materno', 'id'=>'apellidoMaternoP2', 'value'=>$parent[1]->apellidoMaterno])!!}
             @else
-              {!!Form::text('apellidoMaterno', ['class'=>'form-control', 'placeholder'
-            =>'Apellido Materno', 'id'=>'apellidoMaterno'])!!}
+              {!!Form::text('apellidoMaternoP2', ['class'=>'form-control', 'placeholder'
+            =>'Apellido Materno', 'id'=>'apellidoMaternoP2'])!!}
             @endif
         </div>
         <div class="form-group">
-          {!! Form::label('calle', 'Calle: ', ['class'=>'sr-only col-sm-2 control-label']) !!}
+          {!! Form::label('calleP2', 'Calle: ', ['class'=>'sr-only col-sm-2 control-label']) !!}
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             @if(isset($parent[1]))
-              {!!Form::text('calle', ['class'=>'form-control', 'placeholder'
-            =>'Calle', 'id'=>'calle', 'value'=>$parent[1]->direccion])!!}
+              {!!Form::text('calleP2', ['class'=>'form-control', 'placeholder'
+            =>'Calle', 'id'=>'calleP2', 'value'=>$parent[1]->direccion])!!}
             @else
-              {!!Form::text('calle', ['class'=>'form-control', 'placeholder'
-            =>'Calle', 'id'=>'calle'])!!}
+              {!!Form::text('calleP2', ['class'=>'form-control', 'placeholder'
+            =>'Calle', 'id'=>'calleP2'])!!}
             @endif
           </div>
         </div>
         <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          {!! Form::label('numero', 'Numero: ', ['class'=>'sr-only col-sm-2 col-md-2 col-lg-2 control-label']) !!}
+          {!! Form::label('numeroP2', 'Numero: ', ['class'=>'sr-only col-sm-2 col-md-2 col-lg-2 control-label']) !!}
 
             @if(isset($parent[1]))
-              {!!Form::text('numero', ['class'=>'form-control', 'placeholder'
-            =>'Número', 'id' => 'número', 'value'=>$parent[1]->numero])!!}
+              {!!Form::text('numeroP2', ['class'=>'form-control', 'placeholder'
+            =>'Número', 'id' => 'numeroP2', 'value'=>$parent[1]->numero])!!}
             @else
-              {!!Form::text('numero', ['class'=>'form-control', 'placeholder'
-            =>'Número', 'id' => 'numero'])!!}
+              {!!Form::text('numeroP2', ['class'=>'form-control', 'placeholder'
+            =>'Número', 'id' => 'numeroP2'])!!}
             @endif
         </div>
         <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          {!! Form::label('codigoPostal', 'Código Postal: ', ['class'=>'sr-only col-sm-2 col-md-2 col-lg-2 control-label']) !!}
+          {!! Form::label('codigoPostalP2', 'Código Postal: ', ['class'=>'sr-only col-sm-2 col-md-2 col-lg-2 control-label']) !!}
             @if(isset($parent[1]))
-              {!!Form::text('codigoPostal', ['class'=>'form-control', 'placeholder'
-            =>'Código Postal', 'id'=>'codigoPostal', 'value'=>$parent[1]->codigoPostal])!!}
+              {!!Form::text('codigoPostalP2', ['class'=>'form-control', 'placeholder'
+            =>'Código Postal', 'id'=>'codigoPostalP2', 'value'=>$parent[1]->codigoPostal])!!}
             @else
-              {!!Form::text('codigoPostal', ['class'=>'form-control', 'placeholder'
-            =>'Código Postal', 'id'=>'codigoPostal'])!!}
+              {!!Form::text('codigoPostalP2', ['class'=>'form-control', 'placeholder'
+            =>'Código Postal', 'id'=>'codigoPostalP2'])!!}
             @endif
         </div>
         <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          {!! Form::label('Estado', 'Estado: ', ['class'=>'sr-only col-sm-2 control-label']) !!}
+          {!! Form::label('EstadoP2', 'Estado: ', ['class'=>'sr-only col-sm-2 control-label']) !!}
           @if(isset($parent[1]))
-            {!!Form::select('state', [''], ['null-option' => 'Selecciona un Estado'])!!}
+            {!!Form::select('state', prep_options($states, ['id', 'nombre']), ['null-option' => 'Selecciona un Estado', 'selected'=>$parent[1]->municipality_id])!!}
           @else
-            {!!Form::select('state', [''], ['null-option' => 'Selecciona un Estado'])!!}
+            {!!Form::select('state', prep_options($states, ['id', 'nombre']), ['null-option' => 'Selecciona un Estado'])!!}
           @endif
         </div>
         <div class="form-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -113,35 +113,35 @@
           @endif
         </div>
         <div class="form-group">
-          {!! Form::label('correo', 'Correo: ', ['class'=>'sr-only col-sm-2 control-label']) !!}
+          {!! Form::label('correoP2', 'Correo: ', ['class'=>'sr-only col-sm-2 control-label']) !!}
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             @if(isset($parent[1]))
               {!!Form::text('email',['class'=>'form-control', 'placeholder'
-            =>'Correo', 'id'=>'correo', 'value'=>$parent[1]->correo])!!}
+            =>'Correo', 'id'=>'correoP2', 'value'=>$parent[1]->correo])!!}
             @else
               {!!Form::text('email',['class'=>'form-control', 'placeholder'
-            =>'Correo', 'id'=>'correo'])!!}
+            =>'Correo', 'id'=>'correoP2'])!!}
             @endif
           </div>
         </div>
         <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          {!! Form::label('telefonoCasa', 'Teléfono de Casa: ', ['class'=>'sr-only control-label']) !!}
+          {!! Form::label('telefonoCasaP2', 'Teléfono de Casa: ', ['class'=>'sr-only control-label']) !!}
             @if(isset($parent[1]))
-              {!!Form::text('telefonoCasa', ['class'=>'form-control', 'placeholder'
-            =>'Teléfono de Casa ', 'id'=>'telefonoCasa', 'value'=>$parent[1]->telefonoCasa])!!}
+              {!!Form::text('telefonoCasaP2', ['class'=>'form-control', 'placeholder'
+            =>'Teléfono de Casa ', 'id'=>'telefonoCasaP2', 'value'=>$parent[1]->telefonoCasa])!!}
             @else
-              {!!Form::text('telefonoCasa', ['class'=>'form-control', 'placeholder'
-            =>'Teléfono de Casa ', 'id'=>'telefonoCasa'])!!}
+              {!!Form::text('telefonoCasaP2', ['class'=>'form-control', 'placeholder'
+            =>'Teléfono de Casa ', 'id'=>'telefonoCasaP2'])!!}
             @endif
         </div>
         <div class="form-group col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          {!! Form::label('telefonoMovil', 'Teléfono Móvil: ', ['class'=>'sr-only control-label']) !!}
+          {!! Form::label('telefonoMovilP2', 'Teléfono Móvil: ', ['class'=>'sr-only control-label']) !!}
             @if(isset($parent[1]))
-              {!!Form::text('telefonoMovil', ['class'=>'form-control', 'placeholder'
-            =>'Teléfono Móvil', 'id'=>'telefonoMovil', 'value'=>$parent[1]->telefonoMovil])!!}
+              {!!Form::text('telefonoMovilP2', ['class'=>'form-control', 'placeholder'
+            =>'Teléfono Móvil', 'id'=>'telefonoMovilP2', 'value'=>$parent[1]->telefonoMovil])!!}
             @else
-              {!!Form::text('telefonoMovil', ['class'=>'form-control', 'placeholder'
-            =>'Teléfono Móvil', 'id'=>'telefonoMovil'])!!}
+              {!!Form::text('telefonoMovilP2', ['class'=>'form-control', 'placeholder'
+            =>'Teléfono Móvil', 'id'=>'telefonoMovilP2'])!!}
             @endif
         </div>
     </div>

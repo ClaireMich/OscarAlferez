@@ -66,8 +66,7 @@ class AdminController extends ApiController
 
 	public function storeStudent(Request $request)
 	{
-        print_r($request->all());
-		/*$validator=$this->validate($request, [
+		$validator=$this->validate($request, [
             'nombre' 			=> 'required',
 			'apellidoPaterno'	=> 'required',
 			'apellidoMaterno'	=> 'required',
@@ -75,13 +74,23 @@ class AdminController extends ApiController
             'sexo'              => 'required',
             'calle'             => 'required',
             'numero'            => 'required',
-            'field_municipality'=> 'required',
-            'codigoPostal'      => 'required|numeric|max:5',
+            'municipality_id'   => 'required|numeric|min:1',
+            'codigoPostal'      => 'required|numeric',
             'correo'            => 'required|email|unique:students',
 
-        ]);*/
-
-		Student::create($request->all());
+        ]);
+        $student = new Student;
+        $student->nombre=$request->nombre;
+        $student->apellidoPaterno=$request->appellidoPaterno;
+        $student->apellidoMaterno=$request->appellidoMaterno;
+        $student->fechaNacimiento=$request->fechaNacimiento;
+        $student->sexo=$request->sexo;
+        $student->calle=$request->calle;
+        $student->numero=$request->numero;
+        $student->municipality_id=$request->municipality_id;
+        $student->codigoPostal=$request->codigoPostal;
+        $student->correo=$request->correo;
+		$student->save();
 		return $this->Success('created_student');
 	}
 
